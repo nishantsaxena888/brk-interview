@@ -1,0 +1,52 @@
+A2Z AI Foundations Phase 1 Scope
+Editable transcription from the supplied screenshots
+3 Phase 1 scope at a glance
+The table maps each element of the proposed Phase 1 scope to what will actually be built, what will be designed, and how A2Z will know it is done.
+Proposed Phase 1 element
+Phase 1 mode
+What it means for the A2Z agent
+Agent toolkit: AgentCore Runtime and Strands scaffolding A2Z engineers can extend
+Build
+The two A2Z agents refactored onto the shared scaffolding (Strands agent structure, Gateway tool registration, config, CI). All infrastructure delivered as an AWS CDK package. A documented onboarding checklist.
+AuthN and AuthZ: OAuth2, multi-tenancy, persona-level access at the retrieval layer
+Build the floor, design the rest
+OAuth2 inbound to Runtime and Gateway using A2Z Auth0 tied in; tenant ID propagated on every call; row-level tenant isolation enforced at retrieval. Persona-level column access delivered as design plus one enforced example.
+Multi-agent orchestration: intent discovery, routing, composition, per-agent guardrails
+Build core, design async
+Orchestrator in front of the A2Z agents with intent discovery, routing, and a refusal/fallback path. Composition demonstrated with working examples. Synchronous path built; async path as design.
+Prove the orchestration pattern end to end
+Build
+Question Routed between the two basic agents are built (DMS Agent and CRM Agent) and orchestration provided to stitch answers together using both agents as needed.
+
+Phase 1 scope at a glance continued
+Proposed Phase 1 element
+Phase 1 mode
+What it means for the A2Z agent
+Observability, data lineage and evaluation wired in from the first run
+Build
+OpenTelemetry traces from Runtime and Gateway into CloudWatch, one dashboard, three alarms, record-level lineage on every answer, and a re-runnable Bedrock Evaluations harness.
+Cost and model benchmarking so price per answer is a design input
+Measure and recommend
+Cost per answer across two or three candidate models, prompt caching enabled, and a written routing recommendation at A2Z volume projections. Automated routing is a Phase 2 decision.
+AgentCore Memory (A2Z addition)
+Build
+Short-term session memory and long-term memory for the A2Z agent, namespaced by tenant and user, with retention and deletion, wired into the Strands agent and visible in traces.
+LLM Gateway for model calls (A2Z addition)
+Build
+A single governed egress for every model call: model aliases, per-tenant and per-agent keys, budgets and rate limits, fallback, and cost attribution. Distinct from AgentCore Gateway, which fronts tools.
+
+ 
+An orchestrator layer in front of the A2Z agent: intent discovery, routing to the agent or to a refusal/fallback path, and one worked example of composition where a single question requires the A2Z agent plus a second tool or agent. Synchronous path is built; asynchronous orchestration is documented as a design note with the Phase 2 approach.
+WS4 Guardrails and governance
+Bedrock Guardrails policy for the A2Z agent (allowed topics, PII handling, scope limits) plus an orchestrator-level policy on what may be asked at all. A red-team script of roughly ten prompts covering cross-tenant leakage, off-topic requests and PII exfiltration, with pass rate reported. A one-page governance document: who owns policy changes, the approval path, the checklist for onboarding a new agent onto the toolkit, and where the audit log lives.
+WS5 Observability monitoring and lineage
+OpenTelemetry instrumentation using AgentCore Evaluators. Every invocation carries tenant, persona, agent, model, tokens in and out, latency, cost per answer, guardrail hits, Gateway tool calls, and the retrieval record identifiers used (lineage). One CloudWatch dashboard. Three alarms: error rate, p95 latency, daily spend.
+WS6 Evaluation and test harness
+A golden dataset of question-and-answer pairs for the A2Z agent (A2Z supplies questions and expected answers; AllCloud builds the harness). A Bedrock Evaluations job scoring accuracy, hallucination and behaviour. The harness is runnable by A2Z with a single command and wired to run on pull requests, and it produces a baseline report. The harness is built so the Phase 2 agents drop in with a new dataset and no code changes.
+WS7 Cost and model benchmarking
+Cost per answer for the A2Z agent across two or three candidate Bedrock models, using the golden dataset from WS6. Prompt caching enabled on system prompts and static context. A written model-routing recommendation with projected monthly spend at A2Z’s volume projections, which also feeds the AWS funding case.
+Cross cutting Infrastructure as code AWS CDK
+This requirement applies to every workstream, not only WS1. Guardrails policies (WS4), OpenTelemetry collectors, CloudWatch dashboards and alarms (WS5), the Bedrock Evaluations job and its pipeline (WS6), IAM roles, OAuth2 client registrations and Gateway targets (WS2) are all CDK constructs. Secrets are referenced from Secrets Manager or Parameter Store, never embedded. Console-only configuration is treated as undelivered.
+WS8 AgentCore Memory
+AgentCore Memory is provisioned and wired into the A2Z agent so the agent remembers within a session and across sessions. Short-term memory captures conversation events per session. Long-term memory uses configured extraction strategies (user preferences and semantic summaries at minimum) with namespaces keyed by tenant and user, so a dealership’s memory can never be retrieved by another dealership. The Strands agent gains memory hooks: retrieve relevant memory before each model call, write events after each turn. Guardrails from WS4 run before anything is persisted so PII policy applies to memory, not only to answers. Retention is configured per namespace and a deletion path exists so a user’s or a dealership’s memory can be purged on request. Memory reads and writes appear in WS5 traces with their cost. All resources are CDK constructs.
+Source note: The supplied screenshots contain partial pages. Text outside the visible image area is not included.
