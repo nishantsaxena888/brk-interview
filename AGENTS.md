@@ -27,3 +27,8 @@ This repository contains interview preparation materials, job descriptions, tech
 3. **Documentation Integrity**:
    - Keep markdown documentation formatted with clear headers, tables, and Mermaid diagrams where applicable.
    - Maintain clickable file links (`file:///...`) when linking codebase artifacts.
+
+4. **AI Agent Collaboration & Portability**:
+   - All AI agents (Antigravity IDE, subagents, Claude Code, or CLI runners) operating within this repository MUST automatically read, inherit, and enforce the rules in `AGENTS.md` and skills in `.agents/skills/`.
+   - Keep `.agents/` synchronized with remote `main` so all team members and agents operate with identical architectural standards and interview prep STAR runbooks.
+
