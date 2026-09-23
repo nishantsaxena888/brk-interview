@@ -1,0 +1,204 @@
+Key Responsibilities
+
+Python Engineer
+Description
+
+Department: Engineering (Data Platform Engineering)
+
+Why This Role Exists
+
+We operate a multi-tenant automotive SaaS platform serving thousands of dealer groups across 
+
+the United States, running on a native AWS (NAWS) backend — Lambda, EventBridge, 
+
+DynamoDB, S3, Step Functions.
+
+That platform doesn't operate alone. It sits between dealer groups and the systems they already 
+
+run — DMS platforms (CDK, Reynolds & Reynolds, Tekion, DealerTrack, Procede), CRMs, 
+
+digital retail tools, F&I providers, and lenders. Over 40 partner platforms feed or consume our 
+
+data today, and every one of them has its own auth model, its own schema, its own idea of what 
+
+a "deal" is, and its own opinion about how much traffic you're allowed to send.
+
+That integration surface is the product. If a dealer's data doesn't land clean and on time, nothing 
+
+downstream works — not the desking tool, not the reporting, not the AI. This role owns that 
+
+surface end to end: you are the engineer who reads the partner's spec, gets on the call with their 
+
+team when the spec is wrong, builds the ingestion in Python on AWS, and keeps it healthy in 
+
+production.
+
+The engineering is only half of it. The other half is the partner's integration team: reading 
+
+between the lines of their documentation, getting a straight answer about undocumented 
+
+behavior, and pushing back on a bad contract before it becomes our problem. We want an 
+
+engineer who does that work well and understands what dealer workflow the data actually serves 
+
+— not one who moves JSON from A to B and calls it done.
+
+Scope & Scale
+
+• Over 40 integrated partner platforms across DMS, CRM, Digital Retail, F&I, and lending 
+
+— each with distinct auth, rate limits, and data models.
+
+• 5,000+ dealer tenants, each with isolated data and per-tenant partner configuration.
+
+• Tens of thousands of API requests daily across REST, SOAP, webhook, and file-based 
+
+integration surfaces.
+
+• Partner outages, silent schema changes, and rate-limit shifts are routine, not exceptional 
+
+— the integrations you own have to survive them without a human in the loop.
+
+What You'll Own
+
+• End-to-end partner integrations — from spec review and sandbox access through 
+
+production cutover. You write the Python, define the mapping, and own the result.
+
+• The partner-facing technical relationship — you're the engineer on the call with their 
+
+integration team: clarifying undocumented behavior, negotiating payload changes, 
+
+driving certification, and escalating when their sandbox is down.
+
+• Ingestion and normalization pipelines — webhook receivers, polling clients, and file based feeds landing into S3 and promoting through the medallion layers into the 
+
+normalized model.
+
+• Resilience under someone else's SLA — idempotency and deduplication, exponential 
+
+backoff, rate-limit handling, replay of missed events, and graceful degradation when a 
+
+partner goes dark.
+
+• Integration security — webhook signature verification, OAuth2/JWT credential 
+
+lifecycles, KMS encryption, and credential storage in SSM/Secrets Manager. No secrets 
+
+in code, ever.
+
+• Contract testing and validation — JSON Schema validation at the boundary, contract 
+
+tests against partner sandboxes, and CI gates that catch a partner's breaking change before 
+
+a dealer does.
+
+• Observability and integration health — CloudWatch dashboards, alarms, and 
+
+structured logging per partner, so a 2 AM failure is diagnosable without guessing.
+
+• Documentation that survives you — mapping specs, runbooks, and onboarding guides 
+
+per partner. The next engineer should not have to re-derive what you learned on a call.
+
+What You Bring
+
+Must Have
+
+• 10+ years of software engineering experience with strong, current Python.
+
+• Judgment about scope: you start from what the integration is worth to the dealer, not from 
+
+the most interesting way to build it — and you've shipped the boring version when the 
+
+boring version was right.
+
+• Hands-on production experience integrating third-party APIs you don't control —
+
+including at least one integration you owned through spec, build, certification, and 
+
+production support.
+
+• Comfort across integration styles, not just modern REST: SOAP/XML, webhooks, and 
+
+file-based feeds are all in scope here.
+
+• Hands-on AWS experience (Lambda, S3, EventBridge, DynamoDB, Step Functions, 
+
+Secrets Manager/SSM).
+
+• Real experience mapping and normalizing inconsistent external schemas into a canonical 
+
+model — and the judgment to know when the partner's data is simply wrong.
+
+• Ability to debug distributed, event-driven systems from logs and traces.
+
+• Willingness to be the person on the partner call. Direct, clear, and unbothered by pushing 
+
+back on someone else's engineering team.
+
+Strongly Preferred
+
+• Idempotency and deduplication patterns for at-least-once delivery (e.g. DynamoDB backed dedup).
+
+• Webhook security: HMAC signature verification, mTLS, replay protection.
+
+• OAuth2 / JWT credential flows and rotation for machine-to-machine integrations.
+
+• JSON Schema or comparable contract validation at system boundaries.
+
+• Infrastructure as code (CDK) and CI/CD (CircleCI).
+
+Nice to Have
+
+• Automotive retail, DMS/CRM, fintech, or multi-tenant marketplace platform experience.
+
+• Experience standing up a partner integration program from scratch (templates, 
+
+scorecards, onboarding runbooks).
+
+Tech & Tools
+
+• Integration Core: Python (AWS Lambda Powertools), API Gateway, EventBridge, Step 
+
+Functions, SQS; REST, SOAP/XML, webhook, and SFTP surfaces.
+
+• Cloud Services (NAWS — native AWS stack): Lambda, S3, DynamoDB, EventBridge, 
+
+Step Functions, ECS Fargate, Aurora, API Gateway, CloudWatch, Secrets Manager, 
+
+KMS, CDK.
+
+
+
+• Languages: Modern Python.
+
+• Data Platform: S3 data lake with medallion layering (landing → bronze → silver → 
+
+gold), DynamoDB single-table design, MySQL/Aurora.
+
+• Infrastructure & Security: CDK, IAM, Auth0, OpenTelemetry, CircleCI.
+
+How You'll Use AI
+
+This is not a "we are AI-curious" company. We use Claude every day, and we expect you to as 
+
+well. Concrete examples for this role:
+
+• Turning vendor API docs, WSDLs, and sample payloads into typed Python client 
+
+skeletons and mapping code.
+
+• Using Claude Code to scaffold Lambda handlers, JSON Schemas, and unit tests from a 
+
+partner spec.
+
+• Diffing a partner's new spec version against the old one to find the breaking change fast.
+
+• Drafting integration runbooks and mapping documentation from the code you just wrote.
+
+• Reasoning over production logs to isolate whether a failure is ours or theirs.
+
+You will not be replaced by AI. You will be the engineer who onboards partners at a pace the 
+
+rest of the industry can't match.
