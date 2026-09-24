@@ -11,7 +11,7 @@
 ## PROFESSIONAL SUMMARY
 
 - 17+ years of experience in software development and delivery across web, client/server, and cloud-native distributed systems; collaborative engineer with Agile/Scrum delivery across US, Singapore, and India.
-- Owned end-to-end integrations with external partner systems — ERP SOAP/WSDL endpoints, WebMethods XML services, Salesforce APIs and webhooks, SharePoint, and file-based feeds (CSV/Excel/SFTP) — landing raw payloads into S3 data lakes and normalizing inconsistent external schemas into canonical models validated with Pydantic / JSON Schema at the boundary.
+- Built end-to-end inbound and outbound data pipelines using Kafka, NiFi, and Celery to integrate enterprise ERP systems and partner APIs, landing raw payloads into S3 data lakes and normalizing them into canonical JSON Schema models at system boundaries.
 - Engineered resilience under upstream SLAs using Python on AWS Lambda (Lambda Powertools): idempotency keys, DynamoDB-backed deduplication, webhook signature verification, rate limiting, exponential backoff, structured exception handling, and fallback paths.
 - Built multi-tenant SaaS platforms enforcing role-based and tenant-scoped data access (RBAC, OAuth2/JWT, Entra ID, Keycloak); comfortable owning the technical relationship with external integration teams.
 - Built production AI systems on AWS Bedrock (Claude) for document and financial data extraction into structured JSON, and RAG services over Elasticsearch dense vectors for semantic search, similarity retrieval, and anomaly detection.
