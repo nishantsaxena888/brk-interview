@@ -52,3 +52,18 @@ This document tracks bullet point refinements, overlap eliminations, and archite
 
 1. Does the separation of **Resilience**, **AI Pipelines**, and **DevOps** in Section 1 effectively eliminate redundancy while maintaining high impact?
 2. Is the ERP pipeline bullet (Kafka + NiFi + Celery + S3 Medallion) aligned cleanly with senior Data Platform Engineering expectations?
+
+---
+
+## ✅ 5. Devin's Review (2026-09-23)
+
+### Q1 — Bullet Separation: **Approved**
+The three-bullet split (Resilience / AI Pipelines / DevOps) eliminates the overlap cleanly — AWS, Lambda, and DynamoDB now each appear in only one summary bullet. High impact maintained; each bullet has a single clear theme.
+
+### Q2 — ERP Pipeline Bullet: **Approved with one caveat**
+Kafka + NiFi + Celery are all verifiable in project history (NiFi → Charter, Kafka → Mind Master/Exponential, Celery → Centene), and the "inbound/outbound ERP → S3 → canonical JSON Schema" framing matches the JD's ingestion story directly.
+
+**Caveat**: keep the wording as **"S3 data lakes"**, not "S3 Medallion" — unless prepared to walk through Landing → Bronze → Silver → Gold unprompted in interview.
+
+### ⚠️ Residual Risk Flag
+The latest resume edits removed the **CapitalOne dedup/idempotency bullet** and the **external-integration-teams bullet**. Summary claims ("DynamoDB deduplication locks", "HMAC webhook verification", "owning the technical relationship with external integration teams") now have no project-level evidence on the page. Defensible verbally — but prep the answer for *"where exactly did you implement dedup / HMAC verification?"*
