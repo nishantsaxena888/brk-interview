@@ -30,7 +30,7 @@
 **Centene**,NewJersey—*AIPolyglotEngineer*—Nov2025–Present
 
 -Directedthecloudmigrationstrategy,orchestratingthedecommissioningoflegacyNovasysarchitecturetotransitionintoSalesforce.
--Architectedahigh-scalePython/DjangoReconciliationEngine(`Reconciliation Engine`)tosecurelyvalidatehigh-volume(100,000+)migratedrecordsacrossSalesforceandNovasys—reconcilingSalesforceAPI/webhookeventsandscheduledflat-fileexportsviaamemory-safechunkingpipeline(`POLICY_CHUNK_SIZE=10,000`)andsingle-queryDBbatchhits,withzeroOOMerrors.
+- Architected a high-scale Python/Django Reconciliation Engine to securely validate high-volume (100,000+) migrated records across Salesforce and Novasys — reconciling Salesforce API/webhook events and scheduled flat-file exports via a memory-safe chunking pipeline (POLICY_CHUNK_SIZE = 10,000) and single-query DB batch hits, with zero OOM errors.
 -Engineeredalightweight,customobservabilitytool—operatingsafelywithinstrictproductionmemoryconstraintsviaservermounts—tomonitorandsupportthesunsettinglegacyarchitecture.
 -BrokedownhighlycomplexlegacytriggersandutilizedPandasaggregationstoinstantlyisolateandbroadcasttheexactreasonsfordatavalidationfailuresduringmigration.
 -Builtdynamicschema-normalizationandfield-mappingrules(formattingpolicyIDs,stripping`.0`decimals,handlingmissing-fieldfallbacks)toreconcileinconsistentexternalrecordformatsintoacanonicalmodel.
