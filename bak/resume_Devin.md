@@ -12,12 +12,12 @@
 
 - 17+ years of experience in software development and delivery across web, client/server, and cloud-native distributed systems; collaborative engineer with Agile/Scrum delivery across US, Singapore, and India.
 - Built end-to-end inbound and outbound data pipelines using Kafka, NiFi, and Celery to integrate enterprise ERP systems and partner APIs, landing raw payloads into S3 data lakes and normalizing them into canonical JSON Schema models at system boundaries.
-- Engineered resilient Python Lambda microservices using AWS Lambda Powertools: idempotency keys, DynamoDB deduplication locks, HMAC webhook verification, and exponential backoff retry policies.
-- Built multi-tenant SaaS platforms enforcing role-based and tenant-scoped data access (RBAC, OAuth2/JWT, Entra ID, Keycloak); comfortable owning the technical relationship with external integration teams.
-- Built production AI systems on AWS Bedrock (Claude) for document and financial data extraction into structured JSON, and RAG services over Elasticsearch dense vectors for semantic search, similarity retrieval, and anomaly detection.
+- Engineered resilient Python Lambda microservices using AWS Lambda Powertools: idempotency keys, DynamoDB deduplication locks, webhook signature verification, and exponential backoff retry policies.
+- Built multi-tenant SaaS platforms enforcing role-based and tenant-scoped data access (RBAC, OAuth2/JWT, Entra ID, Keycloak, Okta, AWS IAM/Cognito, Google Identity); comfortable owning technical relationships with external integration teams.
+- Built production AI systems on AWS Bedrock for document and financial data extraction into structured JSON models, and RAG services over Elasticsearch dense vectors for semantic search and anomaly detection.
 - Architected AI data pipelines using LLMs, LangChain, and LlamaIndex for autonomous document classification, entity extraction, and validation.
 - Claude Code and GitHub Copilot power-user: parses vendor specs and WSDLs into typed Python clients, scaffolds services and handlers, generates TDD and contract test suites, and reasons over production logs to isolate failures.
-- Well-versed in multi-cloud DevOps (AWS, Azure, GCP), automating containerized deployments (EKS, Docker) and Infrastructure as Code using AWS CDK and Terraform.
+- Skilled in extending cloud-native services across AWS, Azure, and GCP: building POCs, scaling existing microservices, and deploying serverless workflows (Functions, Logic Apps) and containerized apps (EKS, Container Apps) via CI/CD pipelines.
 - Hands-on with OCR and Document AI workflows using AWS Textract, Tesseract, docTR, Mindee, and Azure Vision for structured data extraction, integrated with ML-driven validation workflows, rule engines, and classification logic.
 - Skilled in authentication and security (JWT, OAuth2, Keycloak, Azure Entra ID, RBAC, AWS IAM, KMS, Secrets Manager/SSM), async execution (Celery, RQ), and real-time features (WebSockets).
 - Experienced with databases (PostgreSQL, MySQL, Amazon Aurora, MongoDB, Redis, DynamoDB, SQL Server, Azure SQL) including schema design, indexing, and query optimization.

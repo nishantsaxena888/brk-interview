@@ -67,3 +67,27 @@ Kafka + NiFi + Celery are all verifiable in project history (NiFi → Charter, K
 
 ### ⚠️ Residual Risk Flag
 The latest resume edits removed the **CapitalOne dedup/idempotency bullet** and the **external-integration-teams bullet**. Summary claims ("DynamoDB deduplication locks", "HMAC webhook verification", "owning the technical relationship with external integration teams") now have no project-level evidence on the page. Defensible verbally — but prep the answer for *"where exactly did you implement dedup / HMAC verification?"*
+
+**Update**: largely resolved by the new Centene bullets below — Softheon + OneSource are real third-party partner APIs, and the out-of-order Kafka fix is a genuine resilience story.
+
+---
+
+## 🏥 6. Centene Experience (from `centen_experience.md`)
+
+### Key Pillars
+1. **Novasys Portal (Django)** — maintenance, enhancement, core refactoring.
+2. **Upstream Ingestion** — Flask app (Pydantic validation) → Kafka topics → `asyncio` consumers → stored procedures & DB triggers.
+3. **External Partner APIs** — Softheon Broker Lookup (Pydantic validation) + OneSource GraphQL (`hios_id` plan lookup).
+4. **Out-of-Order Event Resilience** — event re-sequencing + span recalculation; eliminated false broker commission payouts / monetary leakage.
+5. **Reconciliation Engine & UI** — chunked processing (10k), lexicographical indexing, air-gapped HTML5 dashboard.
+6. **RHEL Ops & Monitoring** — Nginx/PgBouncer/Postgres/Gunicorn topology, SQLite `system_monitor` auto-restart, `structlog` PII masking.
+
+### Final Resume Bullets (Nishant)
+- **Extensible Django Portal & Async Ingestion**: Enhanced an extensible Django SaaS platform (`Novasys Portal`) and built Python `asyncio` Kafka consumers processing Pydantic-validated event streams from upstream Flask microservices into database stored procedures and background triggers.
+- **Third-Party Partner APIs**: Integrated **Softheon Broker Lookup API** (Pydantic schema validation) and **OneSource GraphQL API** via `httpx.AsyncClient` to asynchronously resolve agent/broker metadata and marketing plan attributes (`hios_id`).
+- **Stream Resilience & Monetary Protection**: Resolved out-of-order Kafka event streams by engineering event re-sequencing and enrollment span recalculation logic, eliminating false broker commission payouts, corrupt member timelines, and monetary financial leakage.
+- **High-Scale Reconciliation Engine & Air-Gapped UI**: Architected a memory-safe two-phase Python reconciliation engine (`compare_manager.py`, `POLICY_CHUNK_SIZE = 10,000`) with lexicographical policy indexing (`start_policy` → `end_policy`) to validate 100,000+ migrated Salesforce records with zero OOM errors and an air-gapped standalone HTML5/JS dashboard.
+- **Legacy RHEL Observability & Security**: Designed a custom RHEL SQLite `system_monitor` daemon to auto-restart PgBouncer connection poolers post OS security patching on legacy enterprise servers, while implementing `structlog` PII masking across logging pipelines.
+
+### ✅ Devin's Take
+This materially strengthens the JD match: **Softheon + OneSource are genuine external partner API integrations** (async httpx, Pydantic boundary validation — exactly the JD's "REST + contract validation at boundaries"), and **out-of-order Kafka re-sequencing → financial impact** is a stronger resilience story than generic retry claims. These two bullets now carry the partner-integration narrative that the summary was previously asserting without evidence.
