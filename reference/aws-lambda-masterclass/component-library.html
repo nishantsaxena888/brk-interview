@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MasterclassUI — Reusable Component Library Explorer</title>
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <style>
+    .catalog-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-6) var(--space-4);
+    }
+    .catalog-hero {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border: 1px solid #334155;
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      color: white;
+      margin-bottom: var(--space-8);
+      box-shadow: var(--shadow-lg);
+    }
+    .catalog-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(59, 130, 246, 0.2);
+      border: 1px solid #3b82f6;
+      border-radius: 999px;
+      color: #93c5fd;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: var(--space-3);
+    }
+    .catalog-nav-tabs {
+      display: flex;
+      gap: 12px;
+      border-bottom: 2px solid var(--border-color);
+      margin-bottom: var(--space-6);
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+    .catalog-tab {
+      padding: 8px 16px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--color-neutral-600);
+      background: none;
+      border: none;
+      transition: all 0.2s;
+    }
+    .catalog-tab:hover {
+      color: var(--color-primary-600);
+      background: var(--color-neutral-100);
+    }
+    .catalog-tab.active {
+      color: white;
+      background: var(--color-primary-600);
+    }
+    .component-card {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      margin-bottom: var(--space-8);
+      box-shadow: var(--shadow-sm);
+    }
+    .component-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .component-title {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      margin: 0;
+      color: var(--color-neutral-900);
+    }
+    .code-tabs {
+      margin-top: var(--space-4);
+      background: #0f172a;
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      color: #e2e8f0;
+      font-family: var(--font-mono, monospace);
+      font-size: 13px;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #334155;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .copy-btn:hover {
+      background: #475569;
+    }
+  </style>
+</head>
+<body style="background-color: var(--color-neutral-50);">
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar-brand">
+      <a href="index.html" class="topbar-logo" style="text-decoration:none;">⚡ Lambda Masterclass</a>
+      <div class="topbar-divider"></div>
+      <span class="topbar-title">MasterclassUI Component Library</span>
+    </div>
+    <div class="topbar-actions">
+      <a href="index.html" class="btn btn-sm btn-ghost" style="text-decoration:none;">← Back to Course</a>
+      <a href="modules/module-37.html" class="btn btn-sm btn-primary" style="text-decoration:none;">Open Module 37</a>
+    </div>
+  </header>
+
+  <div class="catalog-container">
+    <!-- Hero section -->
+    <div class="catalog-hero">
+      <span class="catalog-badge">1000% Reusable Component Architecture</span>
+      <h1 style="margin: 0 0 12px 0; font-size: 32px; font-weight: 800;">MasterclassUI Component Library</h1>
+      <p style="margin: 0; color: #94a3b8; font-size: 16px; max-width: 800px; line-height: 1.6;">
+        Standardized, data-driven interactive UI components designed for cloud architecture, programming sandboxes, technical tutorials, and interactive quizzes. Drop them into any framework or plain HTML.
+      </p>
+    </div>
+
+    <!-- Quick Navigation -->
+    <div class="catalog-nav-tabs">
+      <button class="catalog-tab active" onclick="scrollToSection('sec-terminal')">💻 Terminal Console</button>
+      <button class="catalog-tab" onclick="scrollToSection('sec-code')">📝 Code Editor</button>
+      <button class="catalog-tab" onclick="scrollToSection('sec-quiz')">❓ Quiz Engine</button>
+      <button class="catalog-tab" onclick="scrollToSection('sec-command')">⚡ Command Block</button>
+      <button class="catalog-tab" onclick="scrollToSection('sec-diagram')">📐 Architecture Diagram</button>
+      <button class="catalog-tab" onclick="scrollToSection('sec-lab')">🧪 Hands-on Lab</button>
+    </div>
+
+    <!-- Component 1: Terminal Console -->
+    <div class="component-card" id="sec-terminal">
+      <div class="component-header">
+        <div>
+          <h2 class="component-title">1. Interactive Terminal Component</h2>
+          <span style="color: var(--color-neutral-500); font-size: 14px;">Simulated CLI with pattern-matching commands, prompt customization, and live command logging.</span>
+        </div>
+        <span class="badge badge-success">&lt;ui-terminal&gt;</span>
+      </div>
+
+      <!-- Live Demo Container -->
+      <div id="demo-terminal" style="margin-bottom: 16px;"></div>
+
+      <!-- Code Snippet -->
+      <div class="code-tabs">
+        <button class="copy-btn" onclick="copySnippet('code-terminal')">Copy HTML</button>
+        <pre id="code-terminal" style="margin: 0; overflow-x: auto;"><code>&lt;!-- HTML Web Component Usage --&gt;
+&lt;ui-terminal title="AWS CLI Sandbox" prompt="aws-user$ " mode="simulated"&gt;
+  &lt;script type="application/json"&gt;
+    {
+      "aws sts get-caller-identity": "{\n  \"UserId\": \"AROAEXAMPLEID\",\n  \"Account\": \"123456789012\",\n  \"Arn\": \"arn:aws:iam::123456789012:user/developer\"\n}",
+      "help": "Available commands: aws sts get-caller-identity, help, clear"
+    }
+  &lt;/script&gt;
+&lt;/ui-terminal&gt;
+
+&lt;!-- Or JavaScript API --&gt;
+MasterclassUI.Terminal('#my-container', {
+  title: 'AWS CLI Sandbox',
+  prompt: 'aws-user$ ',
+  commands: { 'help': 'Available commands...' }
+});</code></pre>
+      </div>
+    </div>
+
+    <!-- Component 2: Code Editor -->
+    <div class="component-card" id="sec-code">
+      <div class="component-header">
+        <div>
+          <h2 class="component-title">2. Interactive Code Editor Component</h2>
+          <span style="color: var(--color-neutral-500); font-size: 14px;">Code editor with syntax tabs, line numbering, reset, and run-code sandbox capability.</span>
+        </div>
+        <span class="badge badge-primary">&lt;ui-code-editor&gt;</span>
+      </div>
+
+      <!-- Live Demo Container -->
+      <div id="demo-code-editor" style="margin-bottom: 16px;"></div>
+
+      <div class="code-tabs">
+        <button class="copy-btn" onclick="copySnippet('code-editor-snip')">Copy HTML</button>
+        <pre id="code-editor-snip" style="margin: 0; overflow-x: auto;"><code>&lt;!-- HTML Web Component Usage --&gt;
+&lt;ui-code-editor title="Lambda Handler (Python)" language="python"&gt;
+  &lt;script type="text/plain"&gt;
+import json
+
+def lambda_handler(event, context):
+    return {
+        "statusCode": 200,
+        "body": json.dumps({"message": "Hello from MasterclassUI!"})
+    }
+  &lt;/script&gt;
+&lt;/ui-code-editor&gt;</code></pre>
+      </div>
+    </div>
+
+    <!-- Component 3: Quiz Engine -->
+    <div class="component-card" id="sec-quiz">
+      <div class="component-header">
+        <div>
+          <h2 class="component-title">3. Interactive Quiz Component</h2>
+          <span style="color: var(--color-neutral-500); font-size: 14px;">Instant evaluation, explanations, score tracking, and automated PostgreSQL syncing.</span>
+        </div>
+        <span class="badge badge-warning">&lt;ui-quiz&gt;</span>
+      </div>
+
+      <!-- Live Demo Container -->
+      <div id="demo-quiz" style="margin-bottom: 16px;"></div>
+
+      <div class="code-tabs">
+        <button class="copy-btn" onclick="copySnippet('code-quiz-snip')">Copy HTML</button>
+        <pre id="code-quiz-snip" style="margin: 0; overflow-x: auto;"><code>MasterclassUI.Quiz('#my-quiz-container', {
+  title: 'Cloud Knowledge Check',
+  questions: [
+    {
+      id: 'q1',
+      question: 'Which service enables fully-managed serverless foundation models in AWS?',
+      options: ['Amazon Bedrock', 'Amazon EC2', 'Amazon S3', 'AWS Snowball'],
+      correctIndex: 0,
+      explanation: 'Amazon Bedrock provides unified API access to leading foundation models serverlessly.'
+    }
+  ],
+  onQuestionAnswer: (qId, selectedIndex, isCorrect) => console.log(qId, isCorrect)
+});</code></pre>
+      </div>
+    </div>
+
+    <!-- Component 4: Command Block -->
+    <div class="component-card" id="sec-command">
+      <div class="component-header">
+        <div>
+          <h2 class="component-title">4. CLI Command Block Component</h2>
+          <span style="color: var(--color-neutral-500); font-size: 14px;">1-Click copy button, syntax styling, and descriptive header.</span>
+        </div>
+        <span class="badge badge-info">&lt;ui-command&gt;</span>
+      </div>
+
+      <!-- Live Demo Container -->
+      <div id="demo-command" style="margin-bottom: 16px;"></div>
+
+      <div class="code-tabs">
+        <button class="copy-btn" onclick="copySnippet('code-command-snip')">Copy HTML</button>
+        <pre id="code-command-snip" style="margin: 0; overflow-x: auto;"><code>&lt;ui-command 
+  title="Verify AWS Identity" 
+  command="aws sts get-caller-identity --output table" 
+  description="Validates active AWS credentials and account permissions."&gt;
+&lt;/ui-command&gt;</code></pre>
+      </div>
+    </div>
+
+    <!-- Component 5: Architecture Diagram -->
+    <div class="component-card" id="sec-diagram">
+      <div class="component-header">
+        <div>
+          <h2 class="component-title">5. Architecture Diagram Component</h2>
+          <span style="color: var(--color-neutral-500); font-size: 14px;">Interactive nodes and dataflow diagrams with hover state insights.</span>
+        </div>
+        <span class="badge badge-neutral">MasterclassUI.Diagram</span>
+      </div>
+
+      <!-- Live Demo Container -->
+      <div id="demo-diagram" style="margin-bottom: 16px;"></div>
+
+      <div class="code-tabs">
+        <button class="copy-btn" onclick="copySnippet('code-diag-snip')">Copy JS</button>
+        <pre id="code-diag-snip" style="margin: 0; overflow-x: auto;"><code>MasterclassUI.Diagram('#diagram-container', {
+  title: 'Serverless Event Pipeline',
+  nodes: [
+    { id: 'client', label: 'Client App', icon: '📱', desc: 'Mobile/Web user sending requests' },
+    { id: 'apigw', label: 'API Gateway', icon: '🚪', desc: 'REST API routing & throttling' },
+    { id: 'lambda', label: 'AWS Lambda', icon: '⚡', desc: 'Serverless backend computation' },
+    { id: 'db', label: 'DynamoDB', icon: '🗄️', desc: 'Sub-millisecond NoSQL persistence' }
+  ],
+  connections: [
+    { from: 'client', to: 'apigw', label: 'HTTPS' },
+    { from: 'apigw', to: 'lambda', label: 'Payload' },
+    { from: 'lambda', to: 'db', label: 'PutItem' }
+  ]
+});</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Component Engine Scripts -->
+  <script src="js/engine/progress-engine.js"></script>
+  <script src="js/engine/terminal-engine.js"></script>
+  <script src="js/engine/code-editor-engine.js"></script>
+  <script src="js/engine/quiz-engine.js"></script>
+  <script src="js/engine/challenge-engine.js"></script>
+  <script src="js/engine/console-simulator.js"></script>
+  <script src="js/engine/diagram-engine.js"></script>
+  <script src="js/engine/lab-engine.js"></script>
+  <script src="js/engine/command-block.js"></script>
+  <script src="js/engine/lesson-engine.js"></script>
+  <script src="js/engine/api-sync.js"></script>
+
+  <!-- Unified Component Library Scripts -->
+  <script src="js/components/masterclass-ui.js"></script>
+  <script src="js/components/web-components.js"></script>
+
+  <script>
+    // Smooth scrolling
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copySnippet(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Code snippet copied to clipboard!');
+      });
+    }
+
+    // Initialize Component Demos
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Terminal Demo
+      MasterclassUI.Terminal('#demo-terminal', {
+        title: 'Interactive CLI Sandbox Demo',
+        prompt: 'cloud-engineer$ ',
+        initialText: 'Welcome to MasterclassUI Terminal! Try typing: aws --version or status',
+        commands: {
+          'aws --version': 'aws-cli/2.15.22 Python/3.11.8 Linux/x86_64 botocore/2.4.22',
+          'status': 'All cloud microservices operational. 100% healthcheck passed.',
+          'help': 'Available commands: aws --version, status, help, clear'
+        }
+      });
+
+      // 2. Code Editor Demo
+      MasterclassUI.CodeEditor('#demo-code-editor', {
+        title: 'Python Lambda Function',
+        language: 'python',
+        code: `import boto3\nimport json\n\ndef handler(event, context):\n    print("Event received:", json.dumps(event))\n    return {\n        "statusCode": 200,\n        "body": json.dumps({"status": "SUCCESS", "message": "MasterclassUI CodeEditor working!"})\n    }`
+      });
+
+      // 3. Quiz Demo
+      MasterclassUI.Quiz('#demo-quiz', {
+        title: 'Interactive Assessment Demo',
+        questions: [
+          {
+            id: 'demo-q1',
+            question: 'What is the primary benefit of the MasterclassUI Component Library?',
+            options: [
+              'Strict 1000% reusability with zero hardcoding and framework neutrality',
+              'It only works in one specific course',
+              'It requires reinstalling the whole server',
+              'It does not support HTML custom elements'
+            ],
+            correctIndex: 0,
+            explanation: 'Correct! MasterclassUI components accept any domain data and work seamlessly across Web Components, React, Vue, and vanilla HTML.'
+          }
+        ]
+      });
+
+      // 4. Command Block Demo
+      MasterclassUI.CommandBlock('#demo-command', {
+        title: 'Verify Caller Identity',
+        command: 'aws sts get-caller-identity --output json',
+        description: 'Returns the account, ARN, and unique user identifier for the active CLI session.'
+      });
+
+      // 5. Diagram Demo
+      MasterclassUI.Diagram('#demo-diagram', {
+        title: 'Serverless Event Architecture Flow',
+        nodes: [
+          { id: 'client', label: 'Client App', icon: '📱', desc: 'Sends HTTP requests' },
+          { id: 'apigw', label: 'API Gateway', icon: '🚪', desc: 'Validates & throttles requests' },
+          { id: 'lambda', label: 'AWS Lambda', icon: '⚡', desc: 'Processes business logic' },
+          { id: 'db', label: 'DynamoDB', icon: '🗄️', desc: 'Stores records with low latency' }
+        ],
+        connections: [
+          { from: 'client', to: 'apigw', label: 'HTTPS' },
+          { from: 'apigw', to: 'lambda', label: 'Proxy Event' },
+          { from: 'lambda', to: 'db', label: 'CRUD' }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+Implement Phase 01: Core AWS (Modules 01 - 07)
+The objective is to expand the existing interactive Lambda Masterclass learning platform to include the first 7 foundational AWS chapters from Phase 01. We will use the same data-driven architecture (HTML shell + JS data files mapping to interactive engines) that we used for modules 08 through 14.
+
+Proposed Changes
+Update Course Registry
+Update js/data/courses.js to insert Modules 01 through 07 at the beginning of the modules array. This includes adding module metadata (ID, title, description, color, difficulty, icon, duration, and lessons) and related achievements.
+
+[MODIFY] 
+courses.js
+Module 01: AWS IAM
+Implement interactive lessons covering IAM Users, Groups, Roles, Policies, and Best Practices.
+
+[NEW] 
+module-01-iam.js
+[NEW] 
+module-01.html
+Module 02: Amazon S3
+Implement interactive lessons covering buckets, objects, storage classes, versioning, static website hosting, and security.
+
+[NEW] 
+module-02-s3.js
+[NEW] 
+module-02.html
+Module 03: Amazon EC2
+Implement interactive lessons covering instance types, AMIs, security groups, key pairs, and purchasing options.
+
+[NEW] 
+module-03-ec2.js
+[NEW] 
+module-03.html
+Module 04: Amazon VPC
+Implement interactive lessons covering Subnets, Route Tables, Internet Gateways, NAT Gateways, and Network ACLs.
+
+[NEW] 
+module-04-vpc.js
+[NEW] 
+module-04.html
+Module 05: Amazon CloudWatch
+Implement interactive lessons covering metrics, alarms, logs, and dashboards.
+
+[NEW] 
+module-05-cloudwatch.js
+[NEW] 
+module-05.html
+Module 06: Amazon RDS
+Implement interactive lessons covering relational databases, Multi-AZ, Read Replicas, backups, and engine types (Aurora vs Standard).
+
+[NEW] 
+module-06-rds.js
+[NEW] 
+module-06.html
+Module 07: Amazon Route 53
+Implement interactive lessons covering DNS, Hosted Zones, routing policies, and health checks.
+
+[NEW] 
+module-07-route53.js
+[NEW] 
+module-07.html
+Verification Plan
+Manual Verification
+Validate the new modules correctly show up in the index.html dashboard.
+Confirm each module's HTML page successfully loads and renders the appropriate interactive widgets (quizzes, terminal blocks, concept tables).
+Verify the app.js navigation side-panel successfully lists and navigates to the new modules without errors.

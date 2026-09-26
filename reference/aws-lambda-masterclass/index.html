@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AWS Production Masterclass — Build, deploy, secure, scale, and operate a real AWS production environment. 37 chapters from zero to production-ready architect.">
+  <title>AWS Production Masterclass — From Zero to Production</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+    /* Landing page specific overrides */
+    .landing-body { margin-top: 0; }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-5);
+    }
+    .feature-card {
+      padding: var(--space-5);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-xl);
+      background: var(--color-neutral-0);
+      transition: all var(--transition-base);
+    }
+    .feature-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-lg);
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-3);
+    }
+    .feature-title {
+      font-weight: var(--weight-semibold);
+      color: var(--color-neutral-900);
+      margin-bottom: var(--space-2);
+    }
+    .feature-desc {
+      font-size: var(--text-sm);
+      color: var(--color-neutral-500);
+      line-height: var(--leading-relaxed);
+      margin-bottom: 0;
+    }
+    .mastery-bar {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-neutral-0);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-xl);
+    }
+    .mastery-icon {
+      font-size: var(--text-3xl);
+    }
+    .mastery-info { flex: 1; }
+    .mastery-level {
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-900);
+    }
+    .mastery-desc {
+      font-size: var(--text-xs);
+      color: var(--color-neutral-500);
+      margin-bottom: 0;
+    }
+
+    /* Journey section */
+    .journey-section {
+      background: var(--surface-page);
+      padding: var(--space-8) 0;
+    }
+    .journey-flow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-3);
+      padding: var(--space-4) 0;
+    }
+    .journey-stage {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 8px 16px;
+      background: var(--color-neutral-0);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-neutral-700);
+      transition: all var(--transition-base);
+    }
+    .journey-stage:hover {
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-1px);
+    }
+    .journey-arrow {
+      color: var(--color-neutral-300);
+      font-size: var(--text-lg);
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="landing-body">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content animate-fade-in-up">
+      <div class="hero-badge">
+        🚀 Interactive Learning Platform
+      </div>
+      <h1>
+        AWS Production<br>
+        <span class="highlight">Masterclass</span>
+      </h1>
+      <p class="hero-desc">
+        Build, deploy, secure, scale, and operate a real AWS production environment. 47 chapters. One continuous project. From zero to production-ready architect.
+      </p>
+      <div style="display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap;">
+        <a href="modules/module-04.html" class="btn btn-xl btn-primary" style="text-decoration: none;">
+          🚀 Start Learning
+        </a>
+        <a href="#chapters" class="btn btn-xl btn-secondary" style="text-decoration: none;">
+          📚 Browse Chapters
+        </a>
+      </div>
+      <div class="hero-stats stagger-children">
+        <div class="hero-stat">
+          <div class="hero-stat-value">47</div>
+          <div class="hero-stat-label">Chapters</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">50+</div>
+          <div class="hero-stat-label">Interactive Labs</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">100+</div>
+          <div class="hero-stat-label">Quiz Questions</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">20+</div>
+          <div class="hero-stat-label">Challenges</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARNING JOURNEY -->
+  <section class="page-section journey-section">
+    <div class="container">
+      <div class="page-section-header">
+        <h2>Your Learning Journey</h2>
+        <p>A production-oriented path — each chapter solves a real problem that naturally introduces the next AWS service.</p>
+      </div>
+      <div class="journey-flow stagger-children">
+        <div class="journey-stage">🏗️ Build Network</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">🖥️ Launch App</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">🪣 Store Files</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">🔐 Secure Access</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">⚖️ Load Balance</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">🌐 Add DNS</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">🌍 Add CDN</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">📊 Monitor</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">🗃️ Database</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">🔐 Encrypt</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">⚡ Go Serverless</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">📨 Messaging</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">🚀 Containers</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">🔄 CI/CD</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">⚙️ IaC</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">🛡️ Protect</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">🏢 Govern</div>
+        <span class="journey-arrow">→</span>
+        <div class="journey-stage">🧠 GenAI</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="page-section" style="background: var(--color-neutral-0);">
+    <div class="container">
+      <div class="page-section-header">
+        <h2>What Makes This Different</h2>
+        <p>Not just documentation. A hands-on, interactive learning experience.</p>
+      </div>
+      <div class="feature-grid stagger-children">
+        <div class="feature-card">
+          <div class="feature-icon" style="background: var(--color-primary-50);">🖥️</div>
+          <div class="feature-title">AWS Console Simulator</div>
+          <p class="feature-desc">Navigate a simulated AWS Console with guided step-by-step instructions. Learn by doing.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: var(--color-accent-50);">💻</div>
+          <div class="feature-title">Interactive Terminal</div>
+          <p class="feature-desc">Execute simulated AWS CLI, SAM, and CDK commands with realistic output in your browser.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: var(--color-success-50);">👨‍💻</div>
+          <div class="feature-title">Code Editor</div>
+          <p class="feature-desc">Write, run, and debug Lambda functions in Python, Node.js, and more with line-by-line explanations.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: var(--color-warning-50);">📐</div>
+          <div class="feature-title">Architecture Diagrams</div>
+          <p class="feature-desc">Interactive diagrams where you click components to inspect event payloads and data flows.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: #fdf2f8;">🔧</div>
+          <div class="feature-title">Troubleshooting Labs</div>
+          <p class="feature-desc">Real-world production incidents. Investigate logs, metrics, and IAM policies to find root causes.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: #f5f3ff;">🎤</div>
+          <div class="feature-title">Interview Preparation</div>
+          <p class="feature-desc">Beginner to Architect-level questions with short answers, deep explanations, and follow-ups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section class="page-section" id="dashboard" style="background: var(--surface-page);">
+    <div class="container">
+      <div class="page-section-header">
+        <h2>Your Progress</h2>
+        <p>Track your learning journey across all 47 chapters.</p>
+      </div>
+      <div id="dashboard-stats" class="dashboard-grid stagger-children">
+        <!-- Populated by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTERS -->
+  <section class="page-section" id="chapters" style="background: var(--color-neutral-0);">
+    <div class="container">
+      <div class="page-section-header">
+        <h2>Course Chapters</h2>
+        <p>47 chapters following a real-world production architecture journey.</p>
+      </div>
+      <div id="module-grid" class="module-grid stagger-children">
+        <!-- Populated by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="page-section" style="background: var(--surface-page);">
+    <div class="container">
+      <div class="page-section-header">
+        <h2>Achievements</h2>
+        <p>Professional badges earned through mastery.</p>
+      </div>
+      <div id="achievements-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--space-4);">
+        <!-- Populated by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="app-footer">
+    <p>AWS Production Masterclass — Interactive Learning Platform</p>
+    <p style="font-size: var(--text-xs); color: var(--color-neutral-400);">
+      Built for learning. Content sourced from AWS documentation and rewritten for interactive instruction.<br>
+      AWS, Lambda, and other AWS service names are trademarks of Amazon Web Services, Inc.
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/engine/progress-engine.js"></script>
+  <script src="js/data/courses.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      app.initLanding();
+    });
+  </script>
+</body>
+</html>

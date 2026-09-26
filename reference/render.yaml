@@ -1,0 +1,27 @@
+services:
+  # ============================================================================
+  # Render Web Service — AWS Masterclass Interactive Platform
+  # ============================================================================
+  - type: web
+    name: aws-masterclass-platform
+    runtime: docker
+    plan: free
+    rootDir: .
+    dockerfilePath: Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: masterclass-postgres
+          property: connectionString
+
+databases:
+  # ============================================================================
+  # Render Managed PostgreSQL Database
+  # ============================================================================
+  - name: masterclass-postgres
+    databaseName: masterclass_db
+    plan: free

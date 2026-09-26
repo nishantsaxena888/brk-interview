@@ -12,6 +12,55 @@
 
 ---
 
+## 🎯 Recent Project Justification — Why Centene & KKR Map to This Role
+
+*Use this when asked "walk me through your recent work" or "why are your last two projects relevant to us."*
+
+### Centene — *the direct proof project*
+> **One-liner**: "Centene is where I lived the exact problems this role owns — external partner APIs, event-driven ingestion that can't corrupt downstream data, and schema normalization at scale."
+
+| What BRK needs | What Centene proves |
+| :--- | :--- |
+| Partner APIs you don't control | Softheon REST + OneSource GraphQL integrations, Pydantic-validated at the boundary |
+| At-least-once event resilience | Kafka re-sequencing layer — corrected policy numbers, enrollment spans, commission data |
+| Inconsistent schema → canonical model | `configuration.py` transformers (`.0` stripping, ID formatting, missing-field fallbacks) |
+| High-volume validation | `cent_poc` — 100K+ records, memory-safe chunking, zero OOM |
+| De-risking without a human in the loop | Parallel simulation guard dry-running 100K+ live policies pre-deploy |
+| Production observability | `structlog` PII masking, CloudWatch alarms, RHEL `system_monitor` daemon |
+
+**If they probe deeper on Centene** — the concrete builds to name-drop:
+- **Recon engine internals**: two-phase `compare_manager.py` — `make_chunk` (Pandas streaming, `POLICY_CHUNK_SIZE=10,000`) → `compare_and_aggregate` (one indexed batch query per chunk, JSON artifacts, RAM flushed per chunk).
+- **Dashboard**: zero-dependency HTML5/JS page loading only `master_aggregate.json`, fetching chunk slices on demand via lexicographical `start_policy`→`end_policy` bounds.
+- **Consumer architecture**: `asyncio.gather()` running `KafkaConsumer` + `NovasysConsumer` (DB poller) concurrently; `httpx.AsyncClient` for partner calls; `TypeAdapter(list[Agent]).validate_python` for boundary validation.
+- **AWS pipeline**: reconciliation results → S3 audit exports → Lambda → SQS DLQ → SNS notifications → React SPA + Django dashboard.
+- **Migration validation breadth**: DuckDB in-memory recon tool for Oracle → SQL Server SSIS + Snowflake migrations.
+- **Infra**: Rancher-managed Kubernetes deploys; RHEL 9 topology (Nginx 5555 / PgBouncer 5444 / Postgres 5432 / Gunicorn 8000); custom daemon auto-restarting PgBouncer post-patching.
+
+### KKR — *the AI/data-intelligence proof project*
+> **One-liner**: "KKR is where I proved the AI side — taking unstructured partner documents to structured, validated data with Bedrock and vector search — the same direction your A2Z agent platform is heading."
+
+| What BRK needs | What KKR proves |
+| :--- | :--- |
+| AWS Bedrock in production | Claude 3.5 extraction pipelines → validated Pydantic JSON |
+| Agent-era data quality | RAG over Elasticsearch dense vectors catching anomalies before publication |
+| Unstructured → canonical data | Unstructured filings/spreadsheets → typed canonical models |
+| Multi-tenant-grade platform thinking | Investor-facing SaaS with strict accuracy and audit requirements |
+
+**If they probe deeper on KKR** — the concrete builds to name-drop:
+- **Platform**: Python (FastAPI) + React/Redux investor onboarding platform publishing live valuation data — multi-step validated workflows, not just AI demos.
+- **Ingestion**: REST APIs pulling unstructured data from SharePoint, external financial systems, and legacy Excel — the "messy partner feed" pattern, different costume.
+- **Bedrock (Claude 3.5) pipelines**: prompt workflows converting unstructured financial sheets → structured JSON models; serverless Python APIs for automated exception reporting.
+- **RAG + Elasticsearch**: dense-vector semantic search comparing reported metrics against historic baselines → anomaly flags for analysts.
+- **Verification discipline**: TDD suites generated with Copilot, using raw historic portfolio data as the baseline — "guaranteed calculation accuracy" framing.
+- **Ops**: audit trails, structured logging, automated alerts; containerized deploys on AWS EKS via existing CI/CD.
+
+**Watch out**: KKR was May–Nov 2025 and was partly POC work (Bedrock extraction, RAG anomaly detection were proofs-of-concept). If asked "was this in production?" — be precise: the platform and pipelines were production; the Bedrock/RAG pieces were POCs that proved the pattern. Honesty here protects credibility.
+
+**The bridge sentence** (memorize):
+> *"Centene gave me the integration-and-resilience muscle this role runs on; KKR gave me the AI fluency your A2Z Phase 1 scope is built on. Together they're essentially your job description done twice in different domains."*
+
+---
+
 ## 🔒 Locked-In Talking Points (Consistency Rules)
 
 These are the agreed phrasings — do NOT deviate between resume, cover letter, and verbal:
@@ -102,6 +151,8 @@ These are the agreed phrasings — do NOT deviate between resume, cover letter, 
 
 ## ✅ Pre-Interview Checklist
 - [ ] Resume PDF, cover letter, and verbal claims all match the locked phrasings above
+- [ ] Recent-project justification rehearsed — Centene = proof, KKR = AI fluency, bridge sentence memorized
+- [ ] Know which KKR items were POC vs. production — never overclaim
 - [ ] Can draw Scenario A ingestion pipeline + `cent_poc` engine from memory
 - [ ] Six STAR stories rehearsed aloud at ≤90 seconds each
 - [ ] Read `jd/about.txt` once more morning-of for A2Z vocabulary
